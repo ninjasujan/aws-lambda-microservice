@@ -1,0 +1,43 @@
+service: "microservice-users"
+
+plugins:
+  - serverless-esbuild # used for compiling/packaging the Typescript code
+  - serverless-offline # used for local execution
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  timeout: 30 # repository wide Lambda timeout
+  environment: # repository wide Lambda env variables
+    STAGE: ${self:provider.stage}
+
+custom:
+  cusom_key: ${self:provider.stage}
+
+functions:
+  # Serverless Framework specific syntax
+  userLogin:
+    handler: ./src/user-login.userLogin
+    events:
+      - http:
+          path: /api/${self:service}/user-login
+          method: POST
+          cors:
+            origin: "*"
+            allowCredentials: true
+    environment:
+      CUSTOM_VAL: LAMBDA_SIGNUP
+
+  userLogout:
+    handler: ./src/user-logout.userLogout
+    events:
+      - http:
+          path: /api/${self:service}/user-logout
+          method: POST
+          cors:
+            origin: "*"
+            allowCredentials: true
+    environment:
+      CUSTOM_VAL: LAMBDA_SIGNUP
