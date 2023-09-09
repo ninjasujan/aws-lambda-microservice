@@ -1,10 +1,10 @@
 {
   "name": "@lambda-microservice/users-service",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "user related api endpoint",
   "main": "index.js",
   "dependencies": {
-    "@lambda-microservice/common": "^1.0.0"
+    "@lambda-microservice/common": "^1.0.5"
   },
   "devDependencies": {
     "@serverless/typescript": "^3.30.1",
