@@ -1,6 +1,6 @@
 {
   "name": "users-service",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "user related api endpoint",
   "main": "index.js",
   "scripts": {
