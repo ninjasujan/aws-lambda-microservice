@@ -1,10 +1,15 @@
 {
-  "name": "root",
+  "name": "lambda-microservice",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "lerna": "^7.0.2"
+  },
+  "scripts": {
+    "test": "lerna run test",
+    "deploy:dev": "lerna run deploy:dev",
+    "new-version": "lerna version --conventional-commits --yes"
   }
 }
