@@ -12,9 +12,10 @@ provider:
   timeout: 30 # repository wide Lambda timeout
   environment: # repository wide Lambda env variables
     STAGE: ${self:provider.stage}
+  iamRoleStatements:
 
 custom:
-  cusom_key: ${self:provider.stage}
+  FeedBucket: feedstore
 
 functions:
   userLogin:
@@ -27,6 +28,11 @@ functions:
             origin: "*"
             allowCredentials: true
     environment:
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - s3:GetObject
+        Resource: arn:aws:s3:::${self:custom:FeedBucket}/*
 
   userLogout:
     handler: ./src/user-logout.userLogout
