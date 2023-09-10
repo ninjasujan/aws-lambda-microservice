@@ -17,7 +17,6 @@ custom:
   cusom_key: ${self:provider.stage}
 
 functions:
-  # Serverless Framework specific syntax
   userLogin:
     handler: ./src/user-login.userLogin
     events:
@@ -28,7 +27,6 @@ functions:
             origin: "*"
             allowCredentials: true
     environment:
-      CUSTOM_VAL: LAMBDA_SIGNUP
 
   userLogout:
     handler: ./src/user-logout.userLogout
@@ -40,4 +38,3 @@ functions:
             origin: "*"
             allowCredentials: true
     environment:
-      CUSTOM_VAL: LAMBDA_SIGNUP

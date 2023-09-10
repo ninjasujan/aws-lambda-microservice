@@ -5,6 +5,8 @@ import type {
     Handler,
 } from "aws-lambda";
 import { IUser, generateRandomID } from "@lambda-microservice/common";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 export const userLogin: Handler = async (
     event: APIGatewayProxyEventV2,
@@ -17,6 +19,7 @@ export const userLogin: Handler = async (
             message: "user successfully logged in",
             typeMatch: true,
             randomUUID: generateRandomID(),
+            env: process.env.STAGE || "PROD",
         }),
     };
 };
