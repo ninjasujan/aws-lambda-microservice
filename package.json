@@ -10,6 +10,6 @@
   "scripts": {
     "test": "lerna run test",
     "deploy:dev": "lerna run deploy:dev",
-    "new-version": "lerna version --conventional-commits --yes"
+    "version": "lerna version --conventional-commits --yes"
   }
 }
