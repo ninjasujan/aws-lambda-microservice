@@ -1,6 +1,6 @@
 {
   "name": "@lambda-microservice/users-service",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "user related api endpoint",
   "main": "index.js",
   "dependencies": {
