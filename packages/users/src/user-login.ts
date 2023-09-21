@@ -27,7 +27,6 @@ export const userLogin: Handler = async (
             }),
         };
     } catch (error) {
-        console.log("[error]", error);
         return {
             statusCode: 200,
             body: JSON.stringify({
